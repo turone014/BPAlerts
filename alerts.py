@@ -28,7 +28,7 @@ MACD_SLOW = 26
 MACD_SIGNAL = 9
 
 RSI_OVERSOLD_LOW = 30
-RSI_OVERSOLD_HIGH = 35
+RSI_OVERSOLD_HIGH = 38
 
 TIMEFRAME_RSI = '15m'
 TIMEFRAME_DIVERGENCE = '5m'
@@ -89,7 +89,7 @@ def send_discord_alert(symbol):
 **Time**: {now}
 
 **Conditions Met**:
-- 15m RSI(30) between 30–35 ✅
+- 15m RSI(30) between 30–38 ✅
 - 5m Price: Lower Low 🔻
 - 5m RSI(30): Higher High ⬆️
 - 5m MACD Line: Higher High ⬆️
@@ -288,7 +288,7 @@ MACD_SLOW = 26
 MACD_SIGNAL = 9
 
 RSI_OVERSOLD_LOW = 30
-RSI_OVERSOLD_HIGH = 35
+RSI_OVERSOLD_HIGH = 38
 
 TIMEFRAME_RSI = '1h'
 TIMEFRAME_DIVERGENCE = '15m'
@@ -349,7 +349,7 @@ def send_discord_alert(symbol):
 **Time**: {now}
 
 **Conditions Met**:
-- 1H RSI(30) between 30–35 ✅
+- 1H RSI(30) between 30–38 ✅
 - 15m Price: Lower Low 🔻
 - 15m RSI(30): Higher High ⬆️
 - 15m MACD Line: Higher High ⬆️

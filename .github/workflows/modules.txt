@@ -1,5 +1,0 @@
-ccxt
-requests
-pandas
-numpy
-ta

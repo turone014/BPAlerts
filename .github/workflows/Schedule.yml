@@ -10,22 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Set up Python
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: 3.10
 
-      - name: Install TA-Lib C library
+      - name: Install build dependencies and TA-Lib C lib
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential
-          sudo apt-get install -y wget
+          sudo apt-get install -y build-essential wget
           wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
           tar -xvzf ta-lib-0.4.0-src.tar.gz
-          cd ta-lib/
+          cd ta-lib
           ./configure --prefix=/usr
           make
           sudo make install
@@ -34,11 +33,11 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install numpy  # TA-Lib needs numpy pre-installed
+          pip install numpy
           pip install ta-lib
-          pip install -r requirements.txt || true  # in case ta-lib is in there again
+          pip install -r requirements.txt
 
-      - name: Run the script
+      - name: Run script
         env:
-          DISCORD_WEBHOOK_URL: ${{ secrets.https://discord.com/api/webhooks/1377383087209451703/xnoJnt4PnHnZEiU2FLlYojnEdTnQqpZlK-F6oi7NiY1DAhGf8NGb21Ko_uBVqxOXbmN1 }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python okx_alerts/main.py

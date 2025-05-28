@@ -24,4 +24,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run the script
-        run: python okx_alerts/main.py
+        run: python okx_alerts/alerts.py

@@ -3,4 +3,4 @@ ta
 requests
 pandas
 numpy
-talib
+ta-lib

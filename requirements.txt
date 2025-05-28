@@ -3,3 +3,4 @@ ta
 requests
 pandas
 numpy
+talib

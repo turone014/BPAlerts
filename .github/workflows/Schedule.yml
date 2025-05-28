@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install TA-Lib system library
+      - name: Install TA-Lib C library
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential
@@ -29,13 +29,16 @@ jobs:
           ./configure --prefix=/usr
           make
           sudo make install
+          cd ..
 
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install numpy  # TA-Lib needs numpy pre-installed
+          pip install ta-lib
+          pip install -r requirements.txt || true  # in case ta-lib is in there again
 
       - name: Run the script
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.https://discord.com/api/webhooks/1377383087209451703/xnoJnt4PnHnZEiU2FLlYojnEdTnQqpZlK-F6oi7NiY1DAhGf8NGb21Ko_uBVqxOXbmN1 }}
-        run: python okx_alerts/alerts.py
+        run: python okx_alerts/main.py
